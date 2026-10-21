@@ -1,0 +1,29 @@
+{
+    "description": "Displays detailed information about a user",
+    "info": "**User Information**",
+    "id": "**ID:** {id}",
+    "user": "**User:** {user}",
+    "name": "**Name:** {name}",
+    "nickname": "**Nickname:** {nick}",
+    "color": "**Color:** {color}",
+    "badges": "**Badges:** {badges}",
+    "playing": "**Playing:** {playing}",
+    "membership": "**Membership in Discord:**",
+    "join": "**Membership in {server}:** ",
+    "roles": "**Roles:**",
+    "noNickname": "No nickname",
+    "noPlaying": "Not playing",
+    "noRoles": "No roles.",
+    "select": "Select user",
+    "arguments": {
+        "user": {
+            "name": "user",
+            "description": "The user to display information about"
+        }
+    },
+    "args": {
+        "user":{
+            "description": "Display information for a specific user"
+        }
+    }
+}

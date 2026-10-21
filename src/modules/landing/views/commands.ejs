@@ -1,0 +1,116 @@
+<% if (typeof extra !== 'undefined' && extra.styles) { %>
+  <%- extra.styles %>
+<% } %>
+
+<!-- Hero Section minimalista -->
+<div class="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
+  <!-- Contenido principal -->
+  <main class="max-w-6xl mx-auto px-6 py-16">
+    <!-- Header limpio -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-6">
+        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3"/>
+        </svg>
+        <span class="text-primary text-sm font-medium">Comandos</span>
+      </div>
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-textMain">
+        Documentación de Comandos
+      </h1>
+      
+      <p class="text-lg text-textSecondary max-w-2xl mx-auto">
+        Explora todos los comandos disponibles del bot
+      </p>
+    </div>
+
+    <!-- Grid de categorías -->
+    <div class="space-y-12">
+      <% Object.keys(categories).forEach(function(cat) { %>
+        <section class="command-category">
+          <!-- Header de categoría simple -->
+          <div class="mb-8">
+            <div class="flex items-center gap-3 mb-3">
+              <h2 class="text-2xl font-semibold text-textMain"><%= cat %></h2>
+              <span class="text-sm text-textSecondary bg-primary/10 px-2 py-1 rounded-md">
+                <%= categories[cat].length %>
+              </span>
+            </div>
+            <div class="h-px bg-gradient-to-r from-primary/30 to-transparent"></div>
+          </div>
+
+          <!-- Grid de comandos minimalista -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <% categories[cat].forEach(function(cmd) { %>
+              <div class="group bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-primary/10 hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                <!-- Header del comando -->
+                <div class="flex items-start justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-base font-semibold text-primary">/<%= cmd.name %></span>
+                    <% if(cmd.emoji) { %>
+                      <span class="text-lg"><%= cmd.emoji %></span>
+                    <% } %>
+                  </div>
+                  
+                  <% if(cmd.usage) { %>
+                    <span class="bg-accent/10 text-accent px-2 py-1 rounded text-xs font-medium">
+                      <%= cmd.usage %>
+                    </span>
+                  <% } %>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-textSecondary text-sm leading-relaxed mb-4">
+                  <%= cmd.description || cmd.shortDescription || 'Sin descripción disponible.' %>
+                </p>
+
+                <!-- Ejemplos (solo uno para minimalismo) -->
+                <% if(cmd.examples && cmd.examples.length) { %>
+                  <div class="mb-4">
+                    <p class="text-xs font-medium text-accent mb-2">Ejemplo:</p>
+                    <code class="block bg-textMain/5 text-primary px-3 py-2 rounded text-xs font-mono">
+                      <%= cmd.examples[0] %>
+                    </code>
+                    <% if(cmd.examples.length > 1) { %>
+                      <p class="text-xs text-textSecondary mt-1">+<%= cmd.examples.length - 1 %> más</p>
+                    <% } %>
+                  </div>
+                <% } %>
+
+                <!-- Permisos -->
+                <% if(cmd.permissions && cmd.permissions.length) { %>
+                  <div class="pt-3 border-t border-primary/10">
+                    <div class="flex items-center gap-2 text-xs">
+                      <svg class="w-3 h-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                      </svg>
+                      <span class="text-textSecondary"><%= cmd.permissions.join(', ') %></span>
+                    </div>
+                  </div>
+                <% } %>
+              </div>
+            <% }) %>
+          </div>
+        </section>
+      <% }) %>
+    </div>
+
+    <!-- Footer simple -->
+    <div class="text-center mt-16 pt-8 border-t border-primary/10">
+      <div class="bg-primary/5 rounded-2xl p-6">
+        <h3 class="text-lg font-semibold text-textMain mb-2">¿Necesitas ayuda?</h3>
+        <p class="text-textSecondary mb-4 text-sm">
+          Contacta con nuestro equipo de soporte si tienes dudas
+        </p>
+        <div class="flex gap-3 justify-center">
+          <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+            Soporte
+          </a>
+          <a href="#" class="bg-white/50 text-primary px-4 py-2 rounded-lg text-sm font-medium border border-primary/20 hover:bg-white/70 transition-colors">
+            Docs
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

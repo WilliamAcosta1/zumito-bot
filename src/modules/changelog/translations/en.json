@@ -1,0 +1,50 @@
+{
+    "changelog": {
+        "sidebarTitle": "Changelog",
+        "title": "Changelog",
+        "subtitle": "Latest bot updates",
+        "updateTitle": "Update",
+        "changes": "changes",
+        "detailedChanges": "Detailed changes in this update:",
+        "stats": {
+            "updates": "Updates"
+        },
+        "legend": {
+            "title": "Change types:",
+            "types": {
+                "feature": "New features",
+                "fix": "Fixes",
+                "style": "Visual improvements",
+                "docs": "Documentation",
+                "refactor": "Refactoring",
+                "test": "Tests",
+                "chore": "Maintenance",
+                "improvements": "Improvements",
+                "other": "Other"
+            }
+        },
+        "copyHashTooltip": "Click to copy commit hash",
+        "commitType": {
+            "other": "change"
+        },
+        "footer": {
+            "description": "This history shows the latest updates made to the bot, grouped by date for easier understanding.",
+            "tipsTitle": "Useful tips",
+            "tipLink": "Click on links to view on GitHub",
+            "tipCopy": "Click on hash to copy"
+        },
+        "copyNotification": {
+            "success": "✅ Hash copied to clipboard",
+            "error": "❌ Could not copy"
+        },
+        "error": "Error fetching changelog from GitHub"
+    },
+    "time": {
+        "justNow": "just now",
+        "minutesAgo": "{0} minute(s) ago",
+        "hoursAgo": "{0} hour(s) ago",
+        "daysAgo": "{0} day(s) ago",
+        "monthsAgo": "{0} month(s) ago",
+        "yearsAgo": "{0} year(s) ago"
+    }
+}

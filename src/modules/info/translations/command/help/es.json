@@ -1,0 +1,43 @@
+{
+    "description": "Comandos disponibles e información sobre uno específico.",
+    "title": "Menú de ayuda",
+    "greeting": {
+        "0": "Hola, soy {name}",
+        "1": "Soy el bot multipropósito a cargo de este servidor.",
+        "2": "¿Qué estás esperando?",
+        "3": "¡Elige una categoría y divirtámonos juntos!"
+    },
+    "author": {
+        "command": "Comando"
+    },
+    "my_commands": "Mis Comandos",
+    "commands": "Comandos",
+    "noExamples": "Sin ejemplos",
+    "usage": "Cómo usar",
+    "examples": "Pruébalo así",
+    "aliases": "Alias",
+    "category": "Categoría",
+    "parent": "Comando padre",
+    "subcommands": "Subcomandos",
+    "permissions": {
+        "bot": "Permisos del bot",
+        "user": "Permisos del usuario"
+    },
+    "field": {
+        "detailed": "¿Quieres más información sobre un comando? Usa",
+        "support": "¿Necesitas ayuda? Únete a mi",
+        "support_server": "Soporte"
+    },
+    "select": {
+        "category": "Selecciona una categoría",
+        "command": "Selecciona un comando"
+    },
+    "button": {
+        "viewWeb": "Mirar en la pagina web"
+    },
+    "args": {
+        "command": {
+            "description": "El comando para obtener ayuda"
+        }
+    }
+}

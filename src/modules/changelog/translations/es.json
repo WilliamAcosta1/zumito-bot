@@ -1,0 +1,50 @@
+{
+    "changelog": {
+        "sidebarTitle": "Notas de versión",
+        "title": "Historial de Cambios",
+        "subtitle": "Últimas actualizaciones del bot",
+        "updateTitle": "Actualización",
+        "changes": "cambios",
+        "detailedChanges": "Cambios detallados en esta actualización:",
+        "stats": {
+            "updates": "Actualizaciones"
+        },
+        "legend": {
+            "title": "Tipos de cambios:",
+            "types": {
+                "feature": "Nuevas funciones",
+                "fix": "Correcciones",
+                "style": "Mejoras visuales",
+                "docs": "Documentación",
+                "refactor": "Refactorización",
+                "test": "Tests",
+                "chore": "Mantenimiento",
+                "improvements": "Mejoras",
+                "other": "Otros"
+            }
+        },
+        "copyHashTooltip": "Click para copiar hash del commit",
+        "commitType": {
+            "other": "cambio"
+        },
+        "footer": {
+            "description": "Este historial muestra las últimas actualizaciones realizadas en el bot, agrupadas por fecha para facilitar su comprensión.",
+            "tipsTitle": "Consejos útiles",
+            "tipLink": "Click en enlaces para ver en GitHub",
+            "tipCopy": "Click en hash para copiar"
+        },
+        "copyNotification": {
+            "success": "✅ Hash copiado al portapapeles",
+            "error": "❌ No se pudo copiar"
+        },
+        "error": "Error al obtener el historial de cambios desde GitHub"
+    },
+    "time": {
+        "justNow": "hace unos segundos",
+        "minutesAgo": "hace {0} minuto(s)",
+        "hoursAgo": "hace {0} hora(s)",
+        "daysAgo": "hace {0} día(s)",
+        "monthsAgo": "hace {0} mes(es)",
+        "yearsAgo": "hace {0} año(s)"
+    }
+}

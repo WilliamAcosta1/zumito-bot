@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= botName %> - Discord Bot</title>
+    <meta property="og:title" content="<%= botName %> - Discord Bot" />
+    <meta property="og:description" content="<%= tagline %>" />
+    <meta property="og:image" content="<%= botAvatar %>" />
+    <meta property="og:url" content="https://<%= host %>" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%= botName %> - Discord Bot" />
+    <meta name="twitter:description" content="<%= tagline %>" />
+    <meta name="twitter:image" content="<%= botAvatar %>" />
+    <style>
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <% if (modules.find(m => m.name === 'hero')) { %>
+        <%- include('partials/hero', { botAvatar, botName, botTag, tagline, inviteUrl, supportUrl }) %>
+    <% } %>
+    <main class="flex-1 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 space-y-20">
+        <% modules.filter(m => m.name !== 'hero').forEach(mod => { %>
+            <% if (mod.name === 'stats') { %>
+                <%- include('partials/stats', { servers, users, channels }) %>
+            <% } else if (mod.name === 'featuredCommands') { %>
+                <%- include('partials/featured_commands', { featuredCommands, t }) %>
+            <% } else if (mod.name === 'features') { %>
+                <%- include('partials/features') %>
+            <% } else if (mod.name === 'partners') { %>
+                <%- include('partials/partners') %>
+            <% } else if (mod.name === 'faqs') { %>
+                <%- include('partials/faqs', { faqs }) %>
+            <% } else if (mod.name === 'cta') { %>
+                <%- include('partials/cta', { inviteUrl, githubUrl }) %>
+            <% } %>
+        <% }) %>
+    </main>
+
+    <footer class="py-8 text-center text-sm text-textSecondary">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="<%= supportUrl %>" class="text-textSecondary hover:text-primary">
+                <span class="sr-only">Discord</span>
+                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 -28.5 256 256">
+                    <g>
+                        <path d="M216.856 16.597A222.34 222.34 0 00172.581 8c-.515.914-.989 1.846-1.417 2.808a217.184 217.184 0 00-54.332 0c-.428-.962-.902-1.894-1.417-2.808a222.274 222.274 0 00-44.275 8C30.262 57.732 18.7 100.21 18.7 142.65c0 37.245 17.219 69.525 47.092 92.6a206.953 206.953 0 0040.14 21.439c.662-.925 1.237-1.9 1.716-2.916a157.139 157.139 0 0048.375 0c.48 1.016 1.054 1.991 1.716 2.916a207.03 207.03 0 0040.141-21.44c29.872-23.073 47.091-55.353 47.091-92.598 0-42.44-11.562-84.919-33.115-126.053zM88.675 179.536c-17.93 0-32.548-16.443-32.548-36.72 0-20.278 14.523-36.72 32.548-36.72 18.04 0 32.548 16.523 32.548 36.72 0 20.277-14.508 36.72-32.548 36.72zm78.65 0c-17.93 0-32.548-16.443-32.548-36.72 0-20.278 14.523-36.72 32.548-36.72 18.04 0 32.548 16.523 32.548 36.72 0 20.277-14.508 36.72-32.548 36.72z"/>
+                    </g>
+                </svg>
+            </a>
+            <a href="<%= githubUrl %>" class="text-textSecondary hover:text-primary">
+                <span class="sr-only">GitHub</span>
+                <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="mt-6 text-xs text-textSecondary">Versión del bot: <span class="font-mono"><%= version %></span></div>
+        <p class="mt-2 text-textSecondary">
+            &copy; <%= new Date().getFullYear() %> <%= botName %> &mdash; Hecho con <span class="text-primary">♥</span> para Discord
+        </p>
+    </footer>
+</body>
+</html>

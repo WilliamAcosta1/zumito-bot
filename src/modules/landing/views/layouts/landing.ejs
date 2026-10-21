@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "<%= theme && theme.primary ? theme.primary : '#5865F2' %>",
+                        accent: "<%= theme && theme.accent ? theme.accent : '#57F287' %>",
+                        secondary: "<%= theme && theme.secondary ? theme.secondary : '#36393f' %>",
+                        gradientFrom: "<%= theme && theme.gradientFrom ? theme.gradientFrom : '#23272A' %>",
+                        gradientVia: "<%= theme && theme.gradientVia ? theme.gradientVia : '#36393f' %>",
+                        gradientTo: "<%= theme && theme.gradientTo ? theme.gradientTo : '#5865F2' %>",
+                        textMain: "<%= theme.textMain || '#222' %>", // Color de texto principal
+                        textSecondary: "<%= theme.textSecondary || '#444' %>", // Color de texto secundario
+                        background: "<%= theme.background || '#000' %>" // Color de fondo
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col bg-background">
+    <%- include('../partials/navbar', { botName, navLinks, theme }) %>
+    <%- content %>
+</body>
+</html>

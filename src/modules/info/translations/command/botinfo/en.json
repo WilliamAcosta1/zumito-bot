@@ -1,0 +1,16 @@
+{
+      "description": "Shows bot information",
+      "birthday": "Birthday",
+      "servers": "Servers",
+      "channels": "Channels",
+      "users": "Users",
+      "transmissions": "Transmissions",
+      "online": "Online",
+      "hello": "Hello, I'm {name}. I'm your entertainment and fun buddy. I'm here to brighten your day with a delicious touch of grape flavor. 🍇 My mission is to fill your server with laughter and fun.",
+      "together": "Let's enjoy together! 😊✨",
+      "button":{
+          "invite": "Invite",
+          "support": "Support",
+          "website": "Website"
+      }
+}

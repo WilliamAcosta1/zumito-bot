@@ -1,0 +1,18 @@
+{
+    "title": "Avatar de {user}",
+    "description": "Muestra el avatar de un miembro del servidor.",
+    "error": "Error al obtener el usuario.",
+    "button":{
+        "browser": "Ver en navegador"
+    },
+    "arguments": {
+        "user": {
+            "name": "miembro"
+        }
+    },
+    "args": {
+        "user":{
+            "user": "Muestra el avatar de un usuario específico"
+        }
+    }
+}

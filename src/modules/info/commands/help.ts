@@ -1,0 +1,144 @@
+import { ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder, CommandInteraction, Client } from "zumito-framework/discord";
+import { Command, CommandArgDefinition, CommandChoiceDefinition, CommandParameters, ZumitoFramework, CommandType, SelectMenuParameters, ButtonPressedParams, ServiceContainer } from "zumito-framework";
+import { HelpEmbedBuilderService } from "../services/embedBuilder/HelpEmbedBuilderService.js";
+import { HelpButtonBuilderService } from "../services/actionRow/HelpButtonBuilderService.js";
+import { HelpSelectMenuBuilderService } from "../services/actionRow/HelpSelectMenuBuilderService.js";
+
+export class Help extends Command {
+    categories = ["information"];
+    examples = ["", "ping", "avatar"];
+    aliases = ["?", "h"];
+    args: CommandArgDefinition[] = [{
+        name: "command",
+        type: "string",
+        optional: true,
+        choices: () => {
+            const choices: CommandChoiceDefinition[] = [];
+            const names: string[] = [];
+            this.framework.commands.getAll().forEach((cmd: Command) => {
+                if (!names.includes(cmd.name)) {
+                    names.push(cmd.name);
+                }
+            });
+            names.sort();
+            for (const name of names.slice(0, 25)) {
+                choices.push({ name, value: name });
+            }
+            return choices;
+        },
+    }];
+    botPermissions = ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"];
+    userPermissions = [];
+    type = CommandType.any;
+
+    client: Client;
+    framework: ZumitoFramework;
+    embedBuilderService: HelpEmbedBuilderService;
+    buttonBuilderService: HelpButtonBuilderService;
+    selectMenuBuilderService: HelpSelectMenuBuilderService;
+
+    constructor() {
+        super();
+        this.client = ServiceContainer.getService(Client);
+        this.framework = ServiceContainer.getService(ZumitoFramework);
+        this.embedBuilderService = ServiceContainer.getService(HelpEmbedBuilderService);
+        this.buttonBuilderService = ServiceContainer.getService(HelpButtonBuilderService);
+        this.selectMenuBuilderService = ServiceContainer.getService(HelpSelectMenuBuilderService);
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    private async buildButtonRow(trans: (key: string) => string): Promise<ActionRowBuilder<ButtonBuilder>> {
+        const closeButton = await this.buttonBuilderService.buildCloseButton();
+        const viewWebButton = this.buttonBuilderService.buildViewWebButton(trans);
+        return new ActionRowBuilder<ButtonBuilder>().addComponents(closeButton, viewWebButton);
+    }
+
+    async execute({ message, interaction, args, guildSettings, trans }: CommandParameters): Promise<void> {
+
+        if (args.has("command") && this.framework.commands.getAll().has(args.get("command"))) {
+
+            const command = this.framework.commands.get(args.get("command"))!;
+            const commandEmbed = await this.embedBuilderService.buildCommandEmbed(this.framework, command, guildSettings, this.getPrefix(guildSettings));
+
+            const commandRow = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
+                await this.selectMenuBuilderService.buildCategoriesSelectMenu(this.client, this.framework, guildSettings)
+            );
+            const closeRow = await this.buildButtonRow(trans);
+
+            (message || (interaction as unknown as CommandInteraction)).reply({
+                embeds: [commandEmbed],
+                components: [commandRow, closeRow],
+                allowedMentions: { repliedUser: false },
+            });
+            return;
+        }
+
+        const row = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
+            await this.selectMenuBuilderService.buildCategoriesSelectMenu(this.client, this.framework, guildSettings)
+        );
+        const closeRow = await this.buildButtonRow(trans);
+        const embed = await this.embedBuilderService.buildHelpEmbed(this.client, this.framework, guildSettings);
+
+        (message || (interaction as unknown as CommandInteraction)).reply({
+            embeds: [embed],
+            components: [row, closeRow],
+            allowedMentions: { repliedUser: false },
+        });
+    }
+
+    async buttonPressed({ path, interaction }: ButtonPressedParams): Promise<void> {
+        if (path[1] == "close") {
+            await interaction.message.delete();
+        }
+    }
+
+    async selectMenu({ path, interaction, client, framework, guildSettings, trans }: SelectMenuParameters): Promise<void> {
+
+        if (path[1] == "category") {
+
+            const category = interaction.values[0];
+
+            const commands = Array.from(framework.commands.getAll().values())
+                .filter((c: Command & { premium?: boolean }) => c.categories.includes(category) && !c.premium)
+                .filter((c: Command & { premium?: boolean }, index: number, self: (Command & { premium?: boolean })[]) =>
+                    index === self.findIndex((t: Command & { premium?: boolean }) => t.name === c.name)
+                );
+
+            const categoryEmbed = await this.embedBuilderService.buildCategoryEmbed(
+                client, category, commands, framework, guildSettings, this.getPrefix(guildSettings)
+            );
+
+            const row1 = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
+                await this.selectMenuBuilderService.buildCategoriesSelectMenu(client, framework, guildSettings, category)
+            );
+            const closeRow = await this.buildButtonRow(trans);
+
+            await interaction.deferUpdate();
+            await interaction.editReply({
+                embeds: [categoryEmbed],
+                components: [row1, closeRow],
+                allowedMentions: { repliedUser: false }
+            });
+
+        } else if (path[1] == "command") {
+
+            const command = framework.commands.get(interaction.values[0]);
+            const commandEmbed = await this.embedBuilderService.buildCommandEmbed(framework, command!, guildSettings, this.getPrefix(guildSettings));
+
+            const row = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
+                await this.selectMenuBuilderService.buildCategoriesSelectMenu(client, framework, guildSettings)
+            );
+
+            await interaction.deferUpdate();
+            await interaction.editReply({
+                embeds: [commandEmbed],
+                components: [row],
+                allowedMentions: { repliedUser: false }
+            });
+        }
+    }
+
+    getPrefix(guildSettings: { prefix?: string } | undefined, framework?: ZumitoFramework): string {
+        return (guildSettings?.prefix || process.env.BOT_PREFIX || framework?.settings.defaultPrefix || "!");
+    }
+}

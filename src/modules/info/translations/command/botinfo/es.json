@@ -1,0 +1,16 @@
+{
+      "description": "Muestra información del bot",
+      "birthday": "Cumpleaños",
+      "servers": "Servidores",
+      "channels": "Canales",
+      "users": "Usuarios",
+      "transmissions": "Transmisiones",
+      "online": "En línea",
+      "hello": "Hola, soy {name}. Soy tu compañero de entretenimiento y diversión. Estoy aquí para alegrar tu día con un delicioso toque de sabor a uva. 🍇 Mi misión es llenar tu servidor de risas y diversión.",
+      "together": "¡Disfrutemos juntos! 😊✨",
+      "button":{
+          "invite": "Invitacion",
+          "support": "Soporte",
+          "website": "Sitio web"
+      }
+}

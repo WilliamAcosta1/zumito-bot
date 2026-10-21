@@ -1,0 +1,89 @@
+{
+    "tasks": {
+        "admin": {
+            "title": "Kanban de Tareas",
+            "create": "Nueva Tarea",
+            "createTitle": "Crear Tarea"
+        },
+        "column": {
+            "backlog": "Backlog",
+            "working": "En progreso",
+            "testing": "Pruebas",
+            "pendingFix": "Pendiente de arreglar",
+            "pendingPublish": "Pendiente de publicar",
+            "beta": "Beta Bot",
+            "done": "Completadas"
+        },
+        "field": {
+            "title": "Título",
+            "description": "Descripción",
+            "status": "Estado",
+            "github": "Enlace GitHub (issue/PR)",
+            "project": "Proyecto de GitHub",
+            "repo": "Repositorio",
+            "branch": "Rama",
+            "issue": "Issue",
+            "pulls": "Pull Requests",
+            "assignees": "Asignados",
+            "testers": "Testers",
+            "owner": "Responsable",
+            "comments": "Comentarios",
+            "activity": "Actividad",
+            "public": "Pública",
+            "publicUrl": "URL pública"
+        },
+        "action": {
+            "cancel": "Cancelar",
+            "create": "Crear",
+            "save": "Guardar",
+            "add": "Añadir",
+            "comment": "Comentar",
+            "assign": "Asignar",
+            "requestReview": "Solicitar revisión",
+            "copy": "Copiar",
+            "share": "Compartir",
+            "open": "Abrir",
+            "approve": "Aprobar",
+            "deny": "Rechazar",
+            "openTask": "Abrir tarea"
+        },
+        "placeholder": {
+            "comment": "Escribe un comentario...",
+            "userSearch": "Buscar usuario..."
+        },
+        "help": {
+            "assignees": "Nombres o IDs separados por comas"
+        },
+        "review": {
+            "pendingTitle": "Revisiones pendientes",
+            "openKanban": "Abrir Kanban",
+            "requested": "Solicitado",
+            "approvals": "Aprobaciones",
+            "actions": "Acciones",
+            "none": "Sin revisiones pendientes"
+        },
+        "dm": {
+            "requestReview": "El usuario {requester} te ha solicitado que revises la tarea: {task}",
+            "assignedOwner": "Has sido asignado/a como responsable de una tarea.",
+            "assignedTester": "Has sido añadido/a como tester por {actor} en la tarea: {task}"
+        },
+        "confirm": {
+            "moveToTesting": "La tarea no está en Pruebas. ¿Quieres moverla a Pruebas antes de solicitar revisión?"
+        },
+        "activity": {
+            "title": "Actividad",
+            "none": "Sin actividad",
+            "statusChanged": "{actor} cambió el estado: {from} → {to}",
+            "reviewRequested": "{actor} solicitó revisión ({sent}/{total})",
+            "reviewApproved": "{actor} aprobó la tarea",
+            "reviewDenied": "{actor} rechazó la tarea",
+            "ownerAssigned": "{actor} asignó responsable: {owner}",
+            "testerAdded": "{actor} añadió tester: {tester}"
+        },
+        "toast": {
+            "reviewRequested": "Revisión solicitada: {sent}/{total} MD enviados",
+            "success": "Acción completada con éxito",
+            "error": "Ha ocurrido un error"
+        }
+    }
+}

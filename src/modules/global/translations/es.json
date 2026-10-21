@@ -1,0 +1,157 @@
+{
+    "global": {
+        "permissions": {
+            "CREATE_INSTANT_INVITE": "Crear invitación",
+            "KICK_MEMBERS": "Expulsar miembros",
+            "BAN_MEMBERS": "Banear miembros",
+            "ADMINISTRATOR": "Administrador",
+            "MANAGE_CHANNELS": "Gestionar canales",
+            "MANAGE_GUILD": "Gestionar servidor",
+            "ADD_REACTIONS": "Añadir reacciones",
+            "VIEW_AUDIT_LOG": "Ver registro de auditoría",
+            "PRIORITY_SPEAKER": "Prioridad de palabra",
+            "STREAM": "Transmitir",
+            "VIEW_CHANNEL": "Ver canal",
+            "SEND_MESSAGES": "Enviar mensajes",
+            "SEND_TTS_MESSAGES": "Enviar mensajes TTS",
+            "MANAGE_MESSAGES": "Gestionar mensajes",
+            "EMBED_LINKS": "Insertar enlaces",
+            "ATTACH_FILES": "Adjuntar archivos",
+            "READ_MESSAGE_HISTORY": "Leer historial",
+            "MENTION_EVERYONE": "Mencionar @everyone",
+            "USE_EXTERNAL_EMOJIS": "Usar emojis externos",
+            "VIEW_GUILD_INSIGHTS": "Ver estadísticas",
+            "CONNECT": "Conectar",
+            "SPEAK": "Hablar",
+            "MUTE_MEMBERS": "Silenciar miembros",
+            "DEAFEN_MEMBERS": "Ensordecer miembros",
+            "MOVE_MEMBERS": "Mover miembros",
+            "USE_VAD": "Usar detección de voz",
+            "CHANGE_NICKNAME": "Cambiar apodo",
+            "MANAGE_NICKNAMES": "Gestionar apodos",
+            "MANAGE_ROLES": "Gestionar roles",
+            "MANAGE_WEBHOOKS": "Gestionar webhooks",
+            "MANAGE_EMOJIS_AND_STICKERS": "Gestionar emojis y stickers",
+            "MANAGE_GUILD_EXPRESSIONS": "Gestionar expresiones",
+            "USE_APPLICATION_COMMANDS": "Usar comandos slash",
+            "REQUEST_TO_SPEAK": "Solicitar hablar",
+            "MANAGE_EVENTS": "Gestionar eventos",
+            "MANAGE_THREADS": "Gestionar hilos",
+            "CREATE_PUBLIC_THREADS": "Crear hilos públicos",
+            "CREATE_PRIVATE_THREADS": "Crear hilos privados",
+            "USE_EXTERNAL_STICKERS": "Usar stickers externos",
+            "SEND_MESSAGES_IN_THREADS": "Enviar mensajes en hilos",
+            "USE_EMBEDDED_ACTIVITIES": "Usar actividades",
+            "MODERATE_MEMBERS": "Aislar miembros",
+            "VIEW_CREATOR_MONETIZATION_ANALYTICS": "Ver analíticas del creador",
+            "USE_SOUNDBOARD": "Usar sonidos",
+            "CREATE_GUILD_EXPRESSIONS": "Crear expresiones",
+            "CREATE_EVENTS": "Crear eventos",
+            "USE_EXTERNAL_SOUNDS": "Usar sonidos externos",
+            "SEND_VOICE_MESSAGES": "Enviar mensajes de voz",
+            "SEND_POLLS": "Enviar encuestas",
+            "USE_EXTERNAL_APPS": "Usar apps externas",
+            "PIN_MESSAGES": "Fijar mensajes"
+        },
+        "category": {
+            "configuration": {
+                "name": "Configuración",
+                "description": "Comandos de configuración",
+                "emoji": "⚙️"
+            },
+            "giveaway":{
+                "name": "Giveaway",
+                "description": "Comandos de sorteo",
+                "emoji": "🎉"
+
+            },
+            "information": {
+                "name": "Informacion",
+                "description": "Comandos de información",
+                "emoji": "🏳️"
+            },
+            "music": {
+                "name": "Música",
+                "description": "Comandos de música",
+                "emoji": "🎵"
+            },
+            "gambling": {
+                "name": "Apuestas",
+                "description": "Comandos de apuestas y juegos de azar",
+                "emoji": "🎲"
+            },
+            "admin": {
+                "name": "Admin",
+                "description": "Comandos de administración",
+                "emoji": "🛡️"
+            },
+            "economy": {
+                "name": "Economía",
+                "description": "Comandos de economía y dinero",
+                "emoji": "💰"
+            },
+            "fun": {
+                "name": "Diversión",
+                "description": "Comandos divertidos y de entretenimiento",
+                "emoji": "😄"
+            },
+            "moderation": {
+                "name": "Moderación",
+                "description": "Comandos de moderación",
+                "emoji": "🔨"
+            },
+            "tickets": {
+                "name": "Tickets",
+                "description": "Comandos de soporte y tickets",
+                "emoji": "🎫"
+            },
+            "ranks": {
+                "name": "Rangos",
+                "description": "Comandos de rangos y XP",
+                "emoji": "🏆"
+            },
+            "utilities": {
+                "name": "Utilidades",
+                "description": "Comandos de utilidades y herramientas",
+                "emoji": "🛠️"
+            },
+            "minecraft": {
+                "name": "Minecraft",
+                "description": "Comandos relacionados con Minecraft",
+                "emoji": "⛏️"
+            },
+            "reputation": {
+                "name": "Reputación",
+                "description": "Comandos de reputación",
+                "emoji": "⭐"
+            },
+            "roblox": {
+                "name": "Roblox",
+                "description": "Comandos de Roblox",
+                "emoji": "🧱"
+            },
+            "minigames": {
+                "name": "Minijuegos",
+                "description": "Comandos de minijuegos",
+                "emoji": "🎮"
+            },
+            "valorant": {
+                "name": "Valorant",
+                "description": "Comandos de Valorant",
+                "emoji": "🔫"
+            },
+            "utils": {
+                "name": "Utilidades",
+                "description": "Comandos de utilidades",
+                "emoji": "📊"
+            },
+            "premium": {
+                "name": "Premium",
+                "description": "Comandos premium",
+                "emoji": "⭐"
+            }
+        },
+        "requested": "Pedido por {user}",
+        "none": "Ninguno"
+    }
+}

@@ -1,0 +1,43 @@
+name: New Embed
+description: Suggest the creation of a new bot embed template
+title: "[➕][🗨️] "
+labels: ["feature", "triage", "embed"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        All suggestion are welcomed!
+  - type: input
+    id: module
+    attributes:
+      label: Module Name
+      description: What module the embed should be used?
+      placeholder: The embed should be used in...
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Embed Name
+      description: What name the embed should be used?
+      placeholder: The embed should be used as...
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What your embed should show?
+      description: Tell us how the embed should be used and what they show.
+      placeholder: The embed should show...
+    validations:
+      required: true
+  - type: textarea
+    id: embeds
+    attributes:
+      label: Do you have an example embed? (optional)
+      description: If you have any concept embed JSON, please attach here for make the work easier. You can use gui tools like https://glitchii.github.io/embedbuilder/ to create the embed.
+      render: json
+  - type: textarea
+    attributes:
+      label: Image Upload (Optional)
+      description: Example embed image

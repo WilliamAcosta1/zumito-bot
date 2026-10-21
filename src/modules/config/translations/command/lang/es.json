@@ -1,0 +1,23 @@
+{
+    "args": {
+        "lang":{
+            "description": "Elija su idioma preferido."
+        }
+    },
+    "description": "Obtener o editar el idioma del servidor actual.",
+    "arguments": {
+        "lang": {
+            "name": "Idioma",
+            "description": "La lengua que se debe fijar"
+        }
+    },
+    "language": "Idioma",
+    "current": "Mi idioma en este servidor es: {lang}",
+    "drop": "Despliegue el menú y seleccione su idioma de preferencia.",
+    "select": "Seleccione el idioma",
+    "invalid": "El idioma ingresado no es válido.",
+    "valid": "Los idiomas disponibles son: ```{langs}```",
+    "use": "Usa el código del idioma, por ejemplo: {example}",
+    "changed": "Mi idioma ha sido establecido a: {lang}, en este servidor.",
+    "alreadySet": "Mi idioma ya está establecido a: {lang}"
+}
